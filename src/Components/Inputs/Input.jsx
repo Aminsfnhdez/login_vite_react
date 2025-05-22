@@ -1,10 +1,10 @@
 import './Input.css'
 
-const Input = () => {
+const Input = ({placeholder, type, required}) => {
   return (
     <div className="inputs">
         <label htmlFor=""></label>
-        <input type="text" placeholder="Escribe tu usuario"/>
+        <input type={type || 'text'} placeholder={placeholder} required={required}/>
     </div>
   )
 }
