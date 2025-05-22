@@ -1,0 +1,13 @@
+.inputs{
+    font-size: 18px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.inputs input{
+    width: 100%;
+    padding: 15px 10px;
+    border: 1px solid rgb(84, 40, 241);
+    margin: 3px 0;
+}
