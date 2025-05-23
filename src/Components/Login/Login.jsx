@@ -2,12 +2,14 @@ import React from 'react'
 import Input from '../Inputs/Input'
 import Button from '../Button/Button'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     })
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +24,7 @@ const Login = () => {
         }
         setError("");
         alert("Login exitoso");
-        // navigate("/");
+        navigate("/welcome", {state: {email: formData.email}});
         console.log("Formulario enviado", formData);
     }
     const handleChange = (e) => {
