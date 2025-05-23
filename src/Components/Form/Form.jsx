@@ -9,8 +9,16 @@ const Form = () => {
     password: '',
     confirmPassword: ''
   })
+  const [error, setError] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(formData.password !== formData.confirmPassword){
+      setError("Las contraseñas no coinciden");
+      return;
+    }
+    setError("");
+    alert("Registro exitoso");
     console.log("Formulario enviado", formData);
   }
   const handleChange = (e) => {
@@ -28,6 +36,7 @@ const Form = () => {
             <Input placeholder="Escribe tu correo" type="email" required name="email" onChange={handleChange}/>
             <Input placeholder="Escribe tu contraseña" type="password" required name="password" onChange={handleChange}/>
             <Input placeholder="Confirma tu contraseña" type="password" required name="confirmPassword" onChange={handleChange}/>
+            {error && <p className="error-message">{error}</p>}
             <Button type="submit">Registrar</Button>
         </form>
     </section>
