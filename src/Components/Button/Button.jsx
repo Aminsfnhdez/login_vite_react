@@ -1,10 +1,10 @@
 
 import './Button.css';
 
-const Button = () => {
+const Button = ({type = "button", children}) => {
   return (
-    <button className="boton">
-      Registrar
+    <button className="boton" type={type}>
+      {children}
     </button>
   );
 };
