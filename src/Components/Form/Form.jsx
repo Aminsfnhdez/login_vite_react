@@ -2,7 +2,7 @@ import './Form.css'
 import Input from '../Inputs/Input'
 import Button from '../Button/Button'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link} from 'react-router-dom'
 const Form = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -46,6 +46,7 @@ const Form = () => {
             <Input placeholder="Confirma tu contraseña" type="password" required name="confirmPassword" onChange={handleChange}/>
             {error && <p className="error-message">{error}</p>}
             <Button type="submit">Registrar</Button>
+            <p>¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link></p>
         </form>
     </section>
   )

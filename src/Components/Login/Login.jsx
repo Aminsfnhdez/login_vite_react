@@ -2,7 +2,7 @@ import React from 'react'
 import Input from '../Inputs/Input'
 import Button from '../Button/Button'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
@@ -42,6 +42,7 @@ const Login = () => {
             <Input placeholder="Escribe tu contraseña" type="password" required name="password" onChange={handleChange}/>
             {error && <p className="error-message">{error}</p>}
             <Button type="submit">Iniciar sesión</Button>
+            <p>¿No tienes una cuenta? <Link to="/">Registrarse</Link></p>
         </form>
     </section>
   )
