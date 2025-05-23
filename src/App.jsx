@@ -1,14 +1,15 @@
 import Form from "./Components/Form/Form";
-
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 function App() {
   
 
   return (
     <>
-      <div>
-        <Form />
-      </div>
-      
+      <Router>
+        <Routes>
+          <Route path="/" element={<Form />} />
+        </Routes>
+      </Router>
     </>
   )
 }
