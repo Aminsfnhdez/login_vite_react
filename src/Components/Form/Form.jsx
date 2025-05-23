@@ -2,6 +2,7 @@ import './Form.css'
 import Input from '../Inputs/Input'
 import Button from '../Button/Button'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const Form = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -9,6 +10,7 @@ const Form = () => {
     password: '',
     confirmPassword: ''
   })
+  const navigate = useNavigate();
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
@@ -18,7 +20,13 @@ const Form = () => {
       return;
     }
     setError("");
+
+    localStorage.setItem("username", JSON.stringify({
+      email: formData.email,
+      password: formData.password
+    }));
     alert("Registro exitoso");
+    navigate("/login");
     console.log("Formulario enviado", formData);
   }
   const handleChange = (e) => {

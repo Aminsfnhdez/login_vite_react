@@ -11,8 +11,18 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const user = JSON.parse(localStorage.getItem("username"));
+        if(!user){
+            setError("No hay usuarios registrados");
+            return;
+        }
+        if(formData.email !== user.email || formData.password !== user.password){
+            setError("Credenciales incorrectas");
+            return;
+        }
         setError("");
         alert("Login exitoso");
+        // navigate("/");
         console.log("Formulario enviado", formData);
     }
     const handleChange = (e) => {
